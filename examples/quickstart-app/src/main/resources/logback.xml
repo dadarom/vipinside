@@ -7,9 +7,9 @@
 	</appender>
 
 	<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/tmp/logs/quickstart.log</file>
+		<file>/tmp/logs/quickstart-app.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>/tmp/logs/quickstart.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>/tmp/logs/quickstart-app.%d{yyyy-MM-dd}.log</fileNamePattern>
 		</rollingPolicy>
 		<encoder>
 			<pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
@@ -17,7 +17,7 @@
 	</appender>
 
 	<!-- project default level -->
-	<logger name="io.github.dadarom" level="DEBUG" />
+	<logger name="io.github.dadarom.app" level="INFO" />
 
 	<!--log4jdbc -->
 	<logger name="jdbc.sqltiming" level="INFO"/>

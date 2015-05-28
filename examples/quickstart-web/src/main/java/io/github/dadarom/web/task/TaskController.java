@@ -10,6 +10,10 @@ import java.util.Map;
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
 
+import io.github.dadarom.entity.Task;
+import io.github.dadarom.entity.User;
+import io.github.dadarom.service.account.ShiroDbRealm;
+import io.github.dadarom.service.task.TaskService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,13 +25,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springside.examples.quickstart.entity.Task;
-import org.springside.examples.quickstart.entity.User;
-import org.springside.examples.quickstart.service.account.ShiroDbRealm.ShiroUser;
-import org.springside.examples.quickstart.service.task.TaskService;
-import org.springside.modules.web.Servlets;
 
 import com.google.common.collect.Maps;
+import org.springside.modules.web.Servlets;
 
 /**
  * Task管理的Controller, 使用Restful风格的Urls:
@@ -128,7 +128,7 @@ public class TaskController {
 	 * 取出Shiro中的当前用户Id.
 	 */
 	private Long getCurrentUserId() {
-		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
+		ShiroDbRealm.ShiroUser user = (ShiroDbRealm.ShiroUser) SecurityUtils.getSubject().getPrincipal();
 		return user.id;
 	}
 }

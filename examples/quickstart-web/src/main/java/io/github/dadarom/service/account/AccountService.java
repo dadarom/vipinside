@@ -7,6 +7,10 @@ package io.github.dadarom.service.account;
 
 import java.util.List;
 
+import io.github.dadarom.entity.User;
+import io.github.dadarom.repository.TaskDao;
+import io.github.dadarom.repository.UserDao;
+import io.github.dadarom.service.ServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
@@ -14,11 +18,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.springside.examples.quickstart.entity.User;
-import org.springside.examples.quickstart.repository.TaskDao;
-import org.springside.examples.quickstart.repository.UserDao;
-import org.springside.examples.quickstart.service.ServiceException;
-import org.springside.examples.quickstart.service.account.ShiroDbRealm.ShiroUser;
 import org.springside.modules.security.utils.Digests;
 import org.springside.modules.utils.Clock;
 import org.springside.modules.utils.Encodes;
@@ -91,7 +90,7 @@ public class AccountService {
 	 * 取出Shiro中的当前用户LoginName.
 	 */
 	private String getCurrentUserName() {
-		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
+		ShiroDbRealm.ShiroUser user = (ShiroDbRealm.ShiroUser) SecurityUtils.getSubject().getPrincipal();
 		return user.loginName;
 	}
 

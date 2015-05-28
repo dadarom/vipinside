@@ -13,7 +13,51 @@
     <artifactId>quickstart-web</artifactId>
     <packaging>war</packaging>
     <url>http://maven.apache.org</url>
+
+    <properties>
+       <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
+       <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
+       <jdbc.driver.version>5.1.22</jdbc.driver.version>
+    </properties>
+
+    <build>
+        <!--
+        <finalName>qs-web</finalName>
+        -->
+
+        <plugins>
+            <!--jetty插件-->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <configuration>
+                    <systemProperties>
+                        <!--
+                        <systemProperty>
+                            <name>spring.profiles.active</name>
+                            <value>development</value>
+                        </systemProperty>
+                        -->
+                    </systemProperties>
+                    <useTestClasspath>true</useTestClasspath>
+
+                    <webAppConfig>
+                        <contextPath>/${project.artifactId}</contextPath>
+                    </webAppConfig>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+
+
     <dependencies>
+
+        <dependency>
+            <groupId>io.springside</groupId>
+            <artifactId>springside-core</artifactId>
+        </dependency>
 
         <!-- PERSISTENCE begin -->
         <!-- hibernate -->
@@ -253,18 +297,5 @@
         -->
         <!-- TEST end -->
     </dependencies>
-
-    <build>
-        <finalName>qs-web</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.mortbay.jetty</groupId>
-                    <artifactId>jetty-maven-plugin</artifactId>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
-    </build>
 
 </project>

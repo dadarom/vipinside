@@ -5,8 +5,8 @@
  *******************************************************************************/
 package io.github.dadarom.repository;
 
+import io.github.dadarom.entity.User;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springside.examples.quickstart.entity.User;
 
 public interface UserDao extends PagingAndSortingRepository<User, Long> {
 	User findByLoginName(String loginName);

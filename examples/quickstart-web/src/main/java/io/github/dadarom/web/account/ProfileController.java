@@ -7,6 +7,9 @@ package io.github.dadarom.web.account;
 
 import javax.validation.Valid;
 
+import io.github.dadarom.entity.User;
+import io.github.dadarom.service.account.AccountService;
+import io.github.dadarom.service.account.ShiroDbRealm;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springside.examples.quickstart.entity.User;
-import org.springside.examples.quickstart.service.account.AccountService;
-import org.springside.examples.quickstart.service.account.ShiroDbRealm.ShiroUser;
 
 /**
  * 用户修改自己资料的Controller.
@@ -60,7 +60,7 @@ public class ProfileController {
 	 * 取出Shiro中的当前用户Id.
 	 */
 	private Long getCurrentUserId() {
-		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
+		ShiroDbRealm.ShiroUser user = (ShiroDbRealm.ShiroUser) SecurityUtils.getSubject().getPrincipal();
 		return user.id;
 	}
 
@@ -68,7 +68,7 @@ public class ProfileController {
 	 * 更新Shiro中当前用户的用户名.
 	 */
 	private void updateCurrentUserName(String userName) {
-		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
+		ShiroDbRealm.ShiroUser user = (ShiroDbRealm.ShiroUser) SecurityUtils.getSubject().getPrincipal();
 		user.name = userName;
 	}
 }

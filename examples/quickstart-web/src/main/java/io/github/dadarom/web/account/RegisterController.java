@@ -7,6 +7,8 @@ package io.github.dadarom.web.account;
 
 import javax.validation.Valid;
 
+import io.github.dadarom.entity.User;
+import io.github.dadarom.service.account.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springside.examples.quickstart.entity.User;
-import org.springside.examples.quickstart.service.account.AccountService;
 
 /**
  * 用户注册的Controller.

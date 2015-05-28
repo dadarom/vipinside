@@ -8,6 +8,8 @@ package io.github.dadarom.service.task;
 import java.util.List;
 import java.util.Map;
 
+import io.github.dadarom.entity.Task;
+import io.github.dadarom.repository.TaskDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,8 +18,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.springside.examples.quickstart.entity.Task;
-import org.springside.examples.quickstart.repository.TaskDao;
 import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 import org.springside.modules.persistence.SearchFilter.Operator;
