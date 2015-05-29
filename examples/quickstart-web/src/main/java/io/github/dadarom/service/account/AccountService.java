@@ -22,6 +22,8 @@ import org.springside.modules.security.utils.Digests;
 import org.springside.modules.utils.Clock;
 import org.springside.modules.utils.Encodes;
 
+import javax.annotation.Resource;
+
 /**
  * 用户管理类.
  * 
