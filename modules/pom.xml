@@ -14,7 +14,19 @@
     <packaging>pom</packaging>
     <modules>
         <module>zookeeper</module>
+        <module>Gist</module>
     </modules>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.facebook.jcommon</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>0.1.18</version>
+        </dependency>
+
+
+
+    </dependencies>
 
 </project>
